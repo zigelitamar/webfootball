@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Referee</title>
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
+
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="./Referee.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</head>
+<body>
+<div id="main">
+<div id="RefereePage">
+    <form id="Referee" method="get" action="" onsubmit="submitReferee()" role="form">
+        <br>
+        <h2>Hello Dear Referee, what would you like to do?</h2>
+        <div>
+            <input style=" font-family: 'Aclonica';" type="checkbox" id="addEvent" name="addEvent">
+            <label for="addEvent"> Add new event </label>
+        </div>
+
+        <div>
+            <input style=" font-family: 'Aclonica';" type="checkbox" id="createReport" name="createReport">
+            <label for="createReport"> Create new report </label>
+        </div>
+
+        <br>
+        <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+    </form>
+
+
+</div>
+
+<div id="addEventPage" style="display: none;text-align: center" onsubmit="submitCommissioner()">
+    <br>
+    <h1 style="font-size: 18px">Add new event</h1>
+    <br>
+    <h1>Enter the event you would like to add </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="event" name="event"
+           placeholder="Write here">
+    <br>
+    <h1>Enter the minute the event happened : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="minute" name="minute"
+           placeholder="Write here">
+    <br>
+
+    <h1>Enter the game ID where the event occurred : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="game2" name="game2"
+           placeholder="Write here">
+    <br>
+
+    <h1>Enter the player ID that created the event : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="player" name="player"
+           placeholder="Write here">
+    <br>
+    <br>
+    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+</div>
+
+
+<div id="createReportPage" style="display: none;text-align: center" onsubmit="submitCommissioner()">
+    <h1 style="font-size: 18px">Create Report</h1>
+    <br>
+    <h1>Enter the game ID to which you want to add an report : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="game" name="game"
+           placeholder="Write here">
+    <br>
+    <h1>Enter the report :</h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="report" name="report"
+           placeholder="Write here">
+
+    <br>
+    <br>
+    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+</div>
+</div>
+
+
+
+</body>
+</html>

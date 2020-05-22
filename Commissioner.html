@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commissioner</title>
+
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
+
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="./Commissioner.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+<div id="CommissionerPage">
+    <form id="Commissioner" method="get" action="" onsubmit="submitCommissioner()" role="form">
+        <h2>Hello Dear Commissioner, what would you like to do?</h2>
+        <br>
+
+        <div>
+            <input style=" font-family: 'Aclonica';" type="checkbox" id="runPlacingAlgo" name="runPlacingAlgo">
+            <label for="runPlacingAlgo"> Define new placing policy to specific season</label>
+        </div>
+        <br>
+
+        <div>
+            <input style=" font-family: 'Aclonica';" type="checkbox" id="setNewScorePolicy" name="setNewScorePolicy">
+            <label for="setNewScorePolicy"> set new score policy</label>
+        </div>
+        <br>
+        <div>
+            <input style=" font-family: 'Aclonica';" type="checkbox" id="defineBudgetControl" name="defineBudgetControl">
+            <label for="defineBudgetControl"> Define rules about budget control</label>
+        </div>
+        <br>
+        <br>
+        <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+    </form>
+
+</div>
+
+
+<div id="runPlacingAlgoPage" style="display: none;text-align: center" onsubmit="submitCommissioner()">
+    <h1 style="font-size: 18px">Define new placing policy to specific season</h1>
+    <br>
+    <h1>Enter an even number </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="number" name="number"
+           placeholder="Write here">
+    <br>
+    <br>
+    <h1>Enter the year of the season : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year2" name="year2"
+           placeholder="Write here">
+
+    <h1>Enter the ID of the league : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="leagueID2" name="leagueID2"
+           placeholder="Write here">
+    <br>
+    <br>
+    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+</div>
+
+    <div id="setNewScorePolicyPage" style="display: none;text-align: center" onsubmit="submitCommissioner()">
+        <h1 style="font-size: 18px">set new score policy</h1>
+        <br>
+    <h1>Enter the year of the season : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year" name="year"
+           placeholder="Write here">
+
+    <h1>Enter the ID of the league : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="leagueID" name="leagueID"
+           placeholder="Write here">
+
+    <h1>Enter the win value of the policy : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="winVal" name="winVal"
+           placeholder="Write here">
+
+    <h1>Enter the lose value of the policy : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="loseVal" name="loseVal"
+           placeholder="Write here">
+
+    <h1>Enter the drop value of the policy : </h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="dropVal" name="dropVal"
+           placeholder="Write here">
+
+    <br>
+    <br>
+    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+
+</div>
+
+
+<div id="defineBudgetControlPage" style="display: none;text-align: center" onsubmit="submitCommissioner()">
+    <h1 style="font-size: 18px">Define rules about budget control</h1>
+    <br>
+    <h1>Enter description :</h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="description" name="description"
+           placeholder="Write here">
+
+    <br>
+
+    <h1>Enter payment amount :</h1>
+    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="payment" name="payment"
+           placeholder="Write here">
+    <br>
+    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
