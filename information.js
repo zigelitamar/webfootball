@@ -1,12 +1,6 @@
 
-var profiles ={
-    fan : false,
-    commissioner : false ,
-    teamowner : false ,
-    teamanager : false ,
-    referee : false,
-}
-var urlip = "http://localhost:8080/";
+
+var urlip = "http://localhost:8700/";
 function submitRegistration() {
     $('#first_form').validate({
         rules: {
@@ -53,6 +47,13 @@ function logingGame() {
         username: $('#userlog-in').val(),
         password: $('#passlog-in').val()
     };
+    var profiles ={
+        fan : false,
+        commissioner : false ,
+        teamowner : false ,
+        teamanager : false ,
+        referee : false,
+    };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
     xhr.open("POST",
@@ -60,14 +61,19 @@ function logingGame() {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == "200") {
-            var jsonans = JSON.parse(this.responseText);
-            if(jsonans[0].localeCompare("true") ==0 ){
+            let jsonans = JSON.parse(this.responseText);
+            if(jsonans.Player == "true"){
                 profiles.fan = true;
+
+
             }
-            if(jsonans[1].localeCompare("true") ==0 ){
-                profiles.fan = true;
+            if(jsonans[1] == "true"){
+                profiles.commissioner = true;
+
             }
-            window.location.href="./chooseprofile.html";
+            localStorage.setItem("profiles",JSON.stringify(profiles));
+            window.location.href = 'chooseprofile.html';
+
         }
     }
     xhr.send(json);

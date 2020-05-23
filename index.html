@@ -3,7 +3,7 @@
 
 <head>
 
-    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -12,12 +12,12 @@
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
 
-    <script src="./jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="./information.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.4.1.slim.min.js"></script>
+    <script src="information.js"></script>
 
 
 </head>
@@ -43,7 +43,7 @@
         <br>
         <div class="logeditor" style="height: 300px;">
             <h2>Log in </h2>
-            <form id="logform" onsubmit="logingGame()">
+            <form id="logform" >
                 <ul>
                     <li>
                         <input style=" font-family: 'Aclonica';" type="text" id="userlog-in" name="userName"
@@ -55,7 +55,7 @@
                                placeholder="type password..."></input>
                     </li>
 
-                    <input style=" font-family: 'Aclonica';" type="submit" value="Log-in">
+                    <input style=" font-family: 'Aclonica';" onclick="logingGame()" value="Log-in"  >
 
                 </ul>
             </form>
@@ -91,6 +91,7 @@
             </form>
         </div>
     </div>
+
 
 </div>
 

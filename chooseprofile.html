@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
 
-    <script src="./jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="./chooseprofile.js"></script>
-    <script type="text/javascript" src="./information.js"></script>
+    <script src="jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="chooseprofile.js"></script>
+    <script type="text/javascript" src="information.js"></script>
     <link rel="stylesheet" type="text/css" href="chooseprofile.css"/>
 </head>
 <div class="options">
-    <label id="fanProfile" class="option" >
-        <input type="radio" name="company" value="apple" checked>
+    <label  class="option" >
+        <input id="fanProfile" type="radio" name="company" value="apple" >
         <div class="option-content">
             <h1 class="animated bounceIn"><i class="ion-social-apple-outline"></i></h1>
             <h4>Fan</h4>
@@ -25,17 +25,17 @@
         </div>
         <div class="on-checked"></div>
     </label>
-    <label id="commissionerProfile"class="option"  style="display: none">
-        <input type="radio" name="company" value="facebook">
+    <label  class="option"  >
+        <input id="commissionerProfile"  type="radio" name="company" value="facebook" onclick="checkprofile()" >
         <div class="option-content">
             <h1 class="animated bounceIn"><i class="ion-social-facebook-outline"></i></h1>
             <h4>Commissioner</h4>
-            <h4><i class="ion-android-radio-button-on"></i></h4>
+            <h4><i   class="ion-android-radio-button-on"></i></h4>
         </div>
         <div class="on-checked"></div>
     </label>
-    <label id="refereeProfile" class="option" style="display: none">
-        <input type="checkbox" name="social" value="tumblr" checked>
+    <label  class="option" >
+        <input id="refereeProfile" type="checkbox" name="social" value="tumblr" checked>
         <div class="option-content">
             <h1 class="animated bounceIn"><i class="ion-social-tumblr-outline"></i></h1>
             <h4>Referee</h4>
@@ -43,8 +43,8 @@
         </div>
         <div class="on-checked"></div>
     </label>
-    <label id="teamManagerProfile" class="option" style="display: none" >
-        <input type="checkbox" name="social" value="twitter">
+    <label  class="option"  >
+        <input  id="teamManagerProfile" type="checkbox" name="social" value="twitter">
         <div class="option-content">
             <h1 class="animated bounceIn"><i class="ion-social-twitter-outline"></i></h1>
             <h4>Team Manager</h4>
@@ -52,8 +52,8 @@
         </div>
         <div class="on-checked"></div>
     </label>
-    <label id="teamOwner" class="option" style="display: none" >
-        <input type="checkbox" name="social" value="twitter">
+    <label  class="option"  >
+        <input id="teamOwner" type="checkbox" name="social" value="twitter">
         <div class="option-content">
             <h1 class="animated bounceIn"><i class="ion-social-twitter-outline"></i></h1>
             <h4>Team Manager</h4>
