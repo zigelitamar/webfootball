@@ -1,6 +1,6 @@
 
 
-var urlip = "http://localhost:8700/";
+var urlip = "http://localhost:8080/";
 function submitRegistration() {
     $('#first_form').validate({
         rules: {
@@ -47,13 +47,6 @@ function logingGame() {
         username: $('#userlog-in').val(),
         password: $('#passlog-in').val()
     };
-    var profiles ={
-        fan : false,
-        commissioner : false ,
-        teamowner : false ,
-        teamanager : false ,
-        referee : false,
-    };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
     xhr.open("POST",
@@ -64,23 +57,24 @@ function logingGame() {
             let jsonans = JSON.parse(this.responseText);
             if(jsonans.Player == "true"){
                 profiles.fan = true;
-
-
             }
-            if(jsonans[1] == "true"){
-                profiles.commissioner = true;
-
+            if(jsonans.TeamManager=="true"){
+                profiles.teamanager=true;
             }
+            //  if(jsonans.TeamOwner=="true"){
+            //  profiles.teamowner=true;
+            //  }
+            //  if(jsonans.Commissioner=="true"){
+            //   profiles.commissioner=true;
+            //   }
+            //  if(jsonans.Referee=="true"){
+            //   profiles.referee=true;
+            //   }
             localStorage.setItem("profiles",JSON.stringify(profiles));
             window.location.href = 'chooseprofile.html';
-
         }
     }
     xhr.send(json);
-
-
-
-
 
 }
 
