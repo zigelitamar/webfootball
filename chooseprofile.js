@@ -1,9 +1,15 @@
+var myprofile = {};
+let attributes = JSON.parse(localStorage.getItem("profiles"));
+myprofile.username = attributes.username;
+myprofile.commissioner = attributes.commissioner;
+myprofile.referee = attributes.referee;
+myprofile.teamowner = attributes.teamowner;
+
 
 function checkCommissionerprofile() {
-    if (JSON.parse(localStorage.getItem("profiles")).commissioner == true) {
+    if (myprofile.commissioner == true) {
         window.location.href = 'Commissioner.html';
-    }
-    else{
+    } else {
         Swal.fire({
             title: 'Error!',
             text: 'You are not a commissioner!',
@@ -12,59 +18,39 @@ function checkCommissionerprofile() {
         })
     }
 }
-function checkFanprofile() {
-    if (JSON.parse(localStorage.getItem("profiles")).fan == true) {
-        window.location.href = 'Fan.html';
-    }
-    else{
-        Swal.fire({
-            title: 'Error!',
-            text: 'You are not a fan!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
-    }
-}
 
 function checkRefereeprofile() {
-    if (JSON.parse(localStorage.getItem("profiles")).referee == true) {
+    if (myprofile.referee == true) {
         window.location.href = 'Referee.html';
-    }
-    else{
+    } else {
         Swal.fire({
             title: 'Error!',
-            text: 'You are not a referee!',
+            text: 'You are not a Referee!',
             icon: 'error',
             confirmButtonText: 'OK'
         })
     }
 }
 
-function checkTeamManagerprofile() {
-    if (JSON.parse(localStorage.getItem("profiles")).teamanager == true) {
-        window.location.href = 'TeamManager.html';
-    }
-    else{
-        Swal.fire({
-            title: 'Error!',
-            text: 'You are not a team manager!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
-    }
+function checkFanprofile() {
+    Swal.fire({
+        title: 'Error!',
+        text: 'This Option will be available soon!',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    })
 }
+
 
 function checkTeamOwnerprofile() {
-    if (JSON.parse(localStorage.getItem("profiles")).teamowner == true) {
-        window.location.href = 'TeamOwner.html';
-    }
-    else{
-        Swal.fire({
-            title: 'Error!',
-            text: 'You are not a team owner!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
-    }
+    Swal.fire({
+        title: 'Error!',
+        text: 'This Option will be available soon!',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    })
+
 }
+
+
 

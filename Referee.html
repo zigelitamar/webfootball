@@ -11,7 +11,8 @@
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
     <script type="text/javascript" src="Referee.js"></script>
@@ -52,9 +53,16 @@
     <br>
     <h1 style="font-size: 18px">Add new event</h1>
     <br>
-    <h1>Enter the event you would like to add </h1>
-    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="event" name="event"
-           placeholder="Write here">
+    <h1>select the event you would like to add </h1>
+    <select id="selectType">
+        <option value="Goal">Goal</option>
+        <option value="Foul">Foul</option>
+        <option value="RedCard">Red card</option>
+        <option value="YellowCard">Yellow card</option>
+        <option value="OffSide">Offside</option>
+        <option value="Substitution">Substitution</option>
+        <option value="Injury">Injury</option>
+    </select>>
     <br>
     <h1>Enter the minute the event happened : </h1>
     <input style=" font-family: 'Aclonica';align-content: center" type="text" id="minute" name="minute"
@@ -62,16 +70,17 @@
     <br>
 
     <h1>Enter the game ID where the event occurred : </h1>
-    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="game2" name="game2"
-           placeholder="Write here">
+    <select id="gameselect" name="locality" onchange="gamehaschoosen()" >
+    </select>
+
     <br>
 
     <h1>Enter the player ID that created the event : </h1>
-    <input style=" font-family: 'Aclonica';align-content: center" type="text" id="player" name="player"
-           placeholder="Write here">
+    <select id="playerselect" name="locality"   disabled></select>
     <br>
     <br>
-    <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
+    <input style=" font-family: 'Aclonica';" onclick="addEvent()" value="do it!">
+
 </div>
 
 

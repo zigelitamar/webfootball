@@ -1,6 +1,6 @@
 
 
-var urlip = "http://localhost:8080/";
+var urlip = "http://localhost:8700/";
 function submitRegistration() {
     $('#first_form').validate({
         rules: {
@@ -49,17 +49,19 @@ function logingGame() {
     };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
+    var profiles ={};
     xhr.open("POST",
         urlip+"footballapp/guest/login", true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == "200") {
             let jsonans = JSON.parse(this.responseText);
-            if(jsonans.Player == "true"){
-                profiles.fan = true;
+            profiles.username = jsonans.username;
+            if(jsonans.commissioner == "true"){
+                profiles.commissioner = true;
             }
-            if(jsonans.TeamManager=="true"){
-                profiles.teamanager=true;
+            if(jsonans.teamowner=="true"){
+                profiles.teamowner=true;
             }
             //  if(jsonans.TeamOwner=="true"){
             //  profiles.teamowner=true;

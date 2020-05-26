@@ -12,6 +12,7 @@ function submitCommissioner(){
     }
 
 }
+
 function switchdivs(newdiv) {
     var CommissionerPage= document.getElementById("CommissionerPage");
     var CommissionerOp4 = document.getElementById("setNewScorePolicyPage");
