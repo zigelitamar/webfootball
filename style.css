@@ -7,7 +7,7 @@
   
 }
 #main{
-    background-image: url('soccer.jpg');
+    background-image: url('kisspng-israel-national-football-team-israeli-premier-leag-5bf48e956c4444.7978273715427539414435.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -20,30 +20,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-#Commissioner{
-    text-align: center;
-    font-family: 'Aclonica';
-    font-size:16px;
-    font-weight:100;
-    color: darkgreen;
-}
-#Referee{
-    text-align: center;
-    font-family: 'Aclonica';
-    font-size:16px;
-    font-weight:100;
-    color: darkgreen;
-}
 
-
-#TeamManager{
-    text-align: center;
-    font-family: 'Aclonica';
-    font-size:16px;
-    font-weight:100;
-    color: darkgreen;
-    backdrop-filter: blur(5px);
-}
 
 h1{
     align-content: center;
@@ -193,6 +170,7 @@ label.error {
 .logeditor textarea{
     resize:none;
     overflow: hidden;
+
 }
 .logeditor input[type="submit"]{
     -moz-box-shadow: inset 0px 1px 0px 0px #797979;
@@ -226,9 +204,9 @@ label.error {
     margin-bottom: 30px;
     border-radius: 3px;
 }
-#registerpage{
+#registerpage,#registerpage2{
     border-radius: 30px 30px 30px 30px;
-    height: 100vh;
+    height: 70vh;
     backdrop-filter: blur(5px);
 }
 

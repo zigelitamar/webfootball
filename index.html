@@ -15,87 +15,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+
     <script src="jquery-3.4.1.slim.min.js"></script>
     <script src="information.js"></script>
+    <link rel="stylesheet" href="mainPage.css">
 
 
 </head>
-
 <body>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <input id="check" type="checkbox" class="check" checked>
+                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign In" onclick="logingGame()">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <a href="#forgot">Forgot Password?</a>
+                </div>
+            </div>
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="userName" class="label">Username</label>
+                    <input id="userName" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="password" class="label">Password</label>
+                    <input id="password" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="re-pass" class="label">Repeat Password</label>
+                    <input id="re-pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="email" class="label">Email Address</label>
+                    <input id="email" type="email" class="input">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign Up">
+                </div>
+                <div class="hr"></div>
 
-
-<div id="main">
-
-    <div id="WelcomePage">
-        <div id="start_buttons">
-            <button class="Buttons" style="text-align: center" id="registerButton" onclick="switchdivs('registerpage')">
-                Register
-            </button>
-            <button class="Buttons" style="text-align: center" id="loginButton" onclick="switchdivs('log-in')"> Login
-            </button>
+            </div>
         </div>
     </div>
-
-
-    <div id="log-in" style="display: none">
-        <br>
-        <br>
-        <div class="logeditor" style="height: 300px;">
-            <h2>Log in </h2>
-            <form id="logform" >
-                <ul>
-                    <li>
-                        <input style=" font-family: 'Aclonica';" type="text" id="userlog-in" name="userName"
-                               placeholder="type user name..."></input>
-                    </li>
-                    <br>
-                    <li>
-                        <input style=" font-family: 'Aclonica';" type="password" id="passlog-in" name="name"
-                               placeholder="type password..."></input>
-                    </li>
-
-                    <input style=" font-family: 'Aclonica';" onclick="logingGame()" value="Log-in"  >
-
-                </ul>
-            </form>
-
-
-        </div>
-
-    </div>
-
-    <div id="registerpage" style="display: none">
-        <div class="logeditor">
-            <form id="first_form" method="post" action="" onsubmit="submitRegistration()" role="form">
-                <h2>Registration </h2>
-                <div>
-                    <input style=" font-family: 'Aclonica';" type="text" id="userName" name="userName"
-                           placeholder="Enter your user name"></input>
-                </div>
-                <div>
-                    <input style=" font-family: 'Aclonica';" type="text" id="name" name="name"
-                           placeholder="Enter your full name"></input>
-                </div>
-                <div>
-                    <input style=" font-family: 'Aclonica';" type="password" id="password" name="password"
-                           placeholder="Enter your password...  longer then 6"></input>
-                </div>
-
-                <div>
-                    <input style=" font-family: 'Aclonica';" type="text" id="id" name="id"
-                           placeholder="Enter your id"></input>
-                </div>
-
-                <input style=" font-family: 'Aclonica';" type="submit" value="Register">
-            </form>
-        </div>
-    </div>
-
-
 </div>
-
-
 </body>
 
 

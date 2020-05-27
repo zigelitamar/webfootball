@@ -11,6 +11,12 @@ function submitReferee(){
     }
 
 }
+$(document).ready(function() {
+    checknotes();
+    interval = setInterval(checknotes,60*1000)
+
+});
+
  function gamehaschoosen () {
      $('#playerselect').prop('disabled', false);
         playertochoose($('#gameselect').val());
@@ -77,7 +83,7 @@ function gameTochoose(){
 }
 function addEvent(){
     const request = {
-        username: "goz",
+        username: refUsername,
         eventtype: $('#selectType').val(),
         minute: $('#minute').val(),
         gameID: $('#gameselect').val(),
@@ -91,7 +97,12 @@ function addEvent(){
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if ( xhr.status == "200") {
-
+            Swal.fire({
+                title: 'Great!',
+                text: 'Event added',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
         }
         else{
             Swal.fire({
@@ -109,30 +120,37 @@ function addEvent(){
 function switchdivs(newdiv) {
     var RefereePage= document.getElementById("RefereePage");
     var mainFrameTwo = document.getElementById(newdiv);
+    var notifypage = document.getElementById("notify");
+    var repage = document.getElementById("createReportPage");
+    var eventpa = document.getElementById("addEventPage");
 
     if(newdiv== "addEventPage"){
         mainFrameTwo.style.display = 'block';
         RefereePage.style.display='none';
+        notifypage.style.display='none'
+        repage.style.display='none'
     }
 
     if(newdiv== "createReportPage"){
         mainFrameTwo.style.display = 'block';
         RefereePage.style.display='none';
+        notifypage.style.display='none';
+        eventpa.style.display='none';
     }
-
-    if(newdiv== "defineBudgetControlPage") {
-        mainFrameTwo.style.display = 'block';
-        RefereePage.style.display = 'none';
-    }
-    if (newdiv == "addToFinanceAssociationActivityPage") {
+    if(newdiv== "notify"){
+        removealertsSign();
         mainFrameTwo.style.display = 'block';
         RefereePage.style.display='none';
+        eventpa.style.display='none';
+        repage.style.display='none';
     }
-
-
-    if (newdiv == "CommissionerPage") {
+    if(newdiv== "RefereePage"){
         mainFrameTwo.style.display = 'block';
-        RefereePage.style.display='none';
+        eventpa.style.display='none';
+        notifypage.style.display='none';
+        repage.style.display='none';
     }
+
+
 
 }

@@ -16,6 +16,7 @@
     <script type="text/javascript" src="Commissioner.js"></script>
     <link rel="stylesheet" href="commissioner.css">
     <script src="AlertControl.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <ul class="navigation">
@@ -25,7 +26,7 @@
     <li class="nav-item"><a href="#" onclick="switchdivs('defineBudgetControlPage')">Budget control</a></li>
     <li class="nav-item"><a href="#" class="notification" onclick="switchdivs('notify')">
         <span>Inbox</span>
-        <span id="note" class="badge"></span>
+        <span id="note" class="badge">Empty</span>
     </a></li>
 </ul>
 
@@ -35,70 +36,75 @@
 <div class="site-wrap">
     <div id="CommissionerPage" style="text-align: center">
         <h2 id="wellcomecomm"></h2>
-        <p></p>
+        <img src="kisspng-israel-national-football-team-israeli-premier-leag-5bf48e956c4444.7978273715427539414435.png">
     </div>
 
 
     <div id="runPlacingAlgoPage" style="display: none;text-align: center" >
-        <h1 style="font-size: 18px">Define new placing policy to specific season</h1>
-        <br>
-        <h1>Enter an even number </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="number" name="number"
-               placeholder="Write here">
-        <br>
-        <br>
-        <h1>Enter the year of the season : </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year2" name="year2"
-               placeholder="Write here">
+        <form id="registerpage2" class="logeditor">
+            <h1 style="font-size: 18px">Define new placing policy to specific season</h1>
+            <br>
+            <h1>Enter an even number </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="number" name="number"
+                   placeholder="Write here">
+            <br>
+            <br>
+            <h1>Enter the year of the season : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year2" name="year2"
+                   placeholder="Write here">
 
-        <h1>Enter the ID of the league : </h1>
+            <h1>Enter the ID of the league : </h1>
 
-        <select style=" font-family: 'Aclonica'" id="leagueID2">Chosse league</select>
-        <br>
-        <br>
-        <input style=" font-family: 'Aclonica';" onclick="addTeamPolicy()" value="do it!">
+            <select style=" font-family: 'Aclonica'" id="leagueID2">Chosse league</select>
+            <br>
+            <br>
+        </form>
+        <button style=" font-family: 'Aclonica';" onclick="addTeamPolicy()" >Send</button>
     </div>
 
-    <div id="setNewScorePolicyPage" style="display: none;text-align: center">
-        <h1 style="font-size: 18px">set new score policy</h1>
-        <br>
-        <h1>Enter the year of the season : </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year" name="year"
-               placeholder="Write here">
+    <div  id="setNewScorePolicyPage" style="display: none;text-align: center">
+        <form id="registerpage" class="logeditor">
+            <h1 style="font-size: 18px">set new score policy</h1>
+            <br>
+            <h1>Enter the year of the season : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year" name="year"
+                   placeholder="Write here">
 
-        <h1>Enter the ID of the league : </h1>
-        <select style=" font-family: 'Aclonica'" id="leagueID">Chosse league</select>
+            <h1>Enter the ID of the league : </h1>
+            <select style=" font-family: 'Aclonica'" id="leagueID">Chosse league</select>
 
-        <h1>Enter the win value of the policy : </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="winval" name="winVal"
-               placeholder="Write here">
+            <h1>Enter the win value of the policy : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="winval" name="winVal"
+                   placeholder="Write here">
 
-        <h1>Enter the lose value of the policy : </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="loseval" name="loseVal"
-               placeholder="Write here">
+            <h1>Enter the lose value of the policy : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="loseval" name="loseVal"
+                   placeholder="Write here">
 
-        <h1>Enter the draw value of the policy : </h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="drawval" name="dropVal"
-               placeholder="Write here">
+            <h1>Enter the draw value of the policy : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="drawval" name="dropVal"
+                   placeholder="Write here">
 
-        <br>
-        <br>
-        <input style=" font-family: 'Aclonica';"  onclick="addScorePolicy()" value="do it!">
-
+            <br>
+            <br>
+        </form>
+        <button style=" font-family: 'Aclonica';"  onclick="addScorePolicy()" >Send</button>
     </div>
 
 
     <div id="defineBudgetControlPage" style="display: none;text-align: center">
-        <h1 style="font-size: 18px">Define rules about budget control</h1>
-        <h1>Enter payment amount :</h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="payment" name="payment"
-               placeholder="Write here">
-        <h1>Enter description amount :</h1>
-        <input style=" font-family: 'Aclonica';align-content: center" type="text" id="descri" name="payment"
-               placeholder="Write here">
-        <br>
-        <input style=" font-family: 'Aclonica';" onclick="defineBudget()"  value="do it!">
+        <form class="logeditor">
+            <h1 style="font-size: 18px">Define rules about budget control</h1>
+            <h1>Enter payment amount :</h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="payment" name="payment"
+                   placeholder="Write here">
+            <h1>Enter description amount :</h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="descri" name="payment"
+                   placeholder="Write here">
+            <br>
 
+        </form>
+        <button style=" font-family: 'Aclonica';" onclick="defineBudget()"  >Send</button>
     </div>
     <div id="notify" style="display: none">
         <p style="color: #070505">HI</p>

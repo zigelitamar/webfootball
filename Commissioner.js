@@ -2,7 +2,7 @@ var url = "http://localhost:8700/footballapp/commissioner";
 var commUserName = JSON.parse(localStorage.getItem("profiles")).username;
 var interval;
 var first = true;
-$('#wellcomecomm').onload = "Welcome back " + commUserName + " to your Commissioner page "
+$('#wellcomecomm').text("Welcome back " + commUserName + " to your Commissioner page ")
 
 function submitCommissioner() {
     event.preventDefault();
@@ -18,7 +18,7 @@ function submitCommissioner() {
 
 $(document).ready(function() {
     checknotes();
-    interval = setInterval(checknotes,5*1000)
+    interval = setInterval(checknotes,60*1000)
 
 });
 
@@ -74,6 +74,12 @@ function addScorePolicy() {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.status == "200") {
+            Swal.fire({
+                title: 'Great!',
+                text: 'Score Policy Added',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
 
         } else {
             Swal.fire({
@@ -103,7 +109,12 @@ function defineBudget() {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.status == "200") {
-
+            Swal.fire({
+                title: 'Great!',
+                text: 'Budget Policy Added',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
         } else {
             Swal.fire({
                 title: 'Error!',
@@ -131,7 +142,12 @@ function addTeamPolicy() {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.status == "200") {
-
+            Swal.fire({
+                title: 'Great!',
+                text: 'Team Policy Added',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
         } else {
             Swal.fire({
                 title: 'Error!',
@@ -191,6 +207,7 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
     }
     if (newdiv == "notify") {
+        removealertsSign();
         mainFrameTwo.style.display = 'block';
         setscore.style.display = 'none';
         CommissionerPage.style.display = 'none';

@@ -25,3 +25,7 @@ function checknotes() {
     }
     request.send();
 }
+function removealertsSign() {
+    $('#note').text('empty');
+
+}

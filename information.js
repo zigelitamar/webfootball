@@ -44,8 +44,8 @@ function submitRegistration() {
 
 function logingGame() {
     const request = {
-        username: $('#userlog-in').val(),
-        password: $('#passlog-in').val()
+        username: $('#user').val(),
+        password: $('#pass').val()
     };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
