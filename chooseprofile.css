@@ -9,7 +9,7 @@ html {
     max-width: 100%;
     font-size: 1rem;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, rgb(48, 78, 46) 20%, #71ffaa 80%);
+    background-image: linear-gradient(rgb(50, 123, 182) 0%, rgb(35, 149, 203) 35%, rgb(160, 216, 239) 100%);
     color: #fff;
     text-align: center;
     font-family: "Roboto Mono", monospace;

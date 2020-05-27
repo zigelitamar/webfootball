@@ -57,11 +57,14 @@ function logingGame() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             let jsonans = JSON.parse(this.responseText);
             profiles.username = jsonans.username;
-            if(jsonans.commissioner == "true"){
+            if(jsonans.Commissioner == "true"){
                 profiles.commissioner = true;
             }
             if(jsonans.teamowner=="true"){
                 profiles.teamowner=true;
+            }
+            if(jsonans.referee=="true"){
+                profiles.referee=true;
             }
             //  if(jsonans.TeamOwner=="true"){
             //  profiles.teamowner=true;
