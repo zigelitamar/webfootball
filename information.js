@@ -1,6 +1,6 @@
 
 
-var urlip = "http://localhost:8700/";
+var urlip = "http://localhost:8080/";
 function submitRegistration() {
     $('#first_form').validate({
         rules: {
@@ -60,10 +60,10 @@ function logingGame() {
             if(jsonans.Commissioner == "true"){
                 profiles.commissioner = true;
             }
-            if(jsonans.teamowner=="true"){
+            if(jsonans.Teamowner=="true"){
                 profiles.teamowner=true;
             }
-            if(jsonans.referee=="true"){
+            if(jsonans.Referee=="true"){
                 profiles.referee=true;
             }
             //  if(jsonans.TeamOwner=="true"){

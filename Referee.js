@@ -1,4 +1,4 @@
-var url ="http://localhost:8700/footballapp/referee";
+var url ="http://localhost:8080/footballapp/referee";
 var refUsername = JSON.parse(localStorage.getItem("profiles")).username;
 
 function submitReferee(){
@@ -14,8 +14,10 @@ function submitReferee(){
 }
 $(document).ready(function() {
     gameTochoose();
-    checknotes();
-    interval = setInterval(checknotes,60*1000)
+    checknotes(refUsername);
+    interval = setInterval(function (){
+        checknotes(refUsername);}
+        ,60*1000)
 
 });
 
@@ -66,7 +68,7 @@ function gameTochoose(){
     dropdown.selectedIndex = 0;
     dropdown2.selectedIndex = 0;
 
-    let myurl = url +'/games';
+    let myurl = url +'/games{'+refUsername+'}';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);

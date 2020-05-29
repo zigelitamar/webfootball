@@ -1,8 +1,8 @@
 var notification =0;
 
-function checknotes() {
+function checknotes(name) {
 
-    let myurl = 'http://localhost:8700/footballapp/commissioner/Notifications';
+    let myurl = 'http://localhost:8080/footballapp/Alert/Notifications{'+name+'}';
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
     request.onload = function () {
@@ -38,4 +38,9 @@ function removealertsSign() {
         i++;
     });
     notification=0;
+}
+function logout() {
+    window.location.href = "index.html"
+
+
 }
