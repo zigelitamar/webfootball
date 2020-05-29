@@ -9,8 +9,9 @@ function submitTeamOwner(){
 
 }
 $(document).ready(function() {
-    checknotes();
-    interval = setInterval(checknotes,6*1000)
+    checknotes(teamOwnerUN);
+    interval = setInterval(function (){checknotes(teamOwnerUN);}
+    ,60*1000)
 
 });
 
