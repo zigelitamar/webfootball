@@ -18,7 +18,7 @@ function submitCommissioner() {
 
 $(document).ready(function() {
     checknotes();
-    interval = setInterval(checknotes,6*1000)
+    interval = setInterval(checknotes,80*1000)
 
 });
 
