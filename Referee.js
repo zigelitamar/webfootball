@@ -1,5 +1,6 @@
 var url ="http://localhost:8700/footballapp/referee";
 var refUsername = JSON.parse(localStorage.getItem("profiles")).username;
+
 function submitReferee(){
     event.preventDefault();
     if((document.getElementById("addEvent").checked == true)){
@@ -12,6 +13,7 @@ function submitReferee(){
 
 }
 $(document).ready(function() {
+    gameTochoose();
     checknotes();
     interval = setInterval(checknotes,60*1000)
 
@@ -53,13 +55,16 @@ function playertochoose(gameid){
 }
 function gameTochoose(){
     let dropdown = document.getElementById('gameselect');
+    let dropdown2 = document.getElementById('gameselect2');
     dropdown.length = 0;
 
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose game';
 
     dropdown.add(defaultOption);
+    dropdown2.add(defaultOption);
     dropdown.selectedIndex = 0;
+    dropdown2.selectedIndex = 0;
 
     let myurl = url +'/games';
 
@@ -75,6 +80,7 @@ function gameTochoose(){
                 option.text = data[argumentsKey];
                 option.value = argumentsKey;
                 dropdown.add(option);
+                dropdown2.add(option);
 
             }
         }
@@ -116,6 +122,37 @@ function addEvent(){
     xhr.send(json);
 
 
+}
+function sendreport(){
+    const request = {
+        username: refUsername,
+        gameID: $('#gameselect2').val()
+    };
+    let json = JSON.stringify(request);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST",
+        url+"/addReport", true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.onload = function () {
+        if ( xhr.status == "200") {
+            Swal.fire({
+                title: 'Great!',
+                text: 'Event added',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Error!',
+                text: 'some thing went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+    xhr.send(json);
 }
 function switchdivs(newdiv) {
     var RefereePage= document.getElementById("RefereePage");

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Team Manager</title>
+    <title>Team Owner</title>
 
     <script src="jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
@@ -12,6 +12,8 @@
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
 
     <script src="jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
@@ -20,30 +22,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <link rel="stylesheet" href="commissioner.css">
+
 </head>
 <body>
-<div id="main">
-<div id="TeamManagerPage">
-    <form id="TeamManager" method="get" action="" onsubmit="submitTeamManager()" role="form">
-        <br>
-        <h2>Hello Dear TeamManager, what would you like to do?</h2>
-        <div>
-            <input style=" font-family: 'Aclonica';" type="checkbox" id="Createnewteam" name="Createnewteam">
-            <label for="Createnewteam"> Create new team</label>
-        </div>
+<ul class="navigation">
+    <li class="nav-item"><a href="#" onclick="switchdivs('TeamOwnerPage')">Home</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('CreatenewteamPage')">Add my team</a></li>
+    <li class="nav-item"><a href="#" class="notification" onclick="switchdivs('notify')">
+        <span>Inbox</span>
+        <span id="note" class="badge">Empty</span>
+    </a></li>
+</ul>
+<input type="checkbox" id="nav-trigger" class="nav-trigger"/>
+<label for="nav-trigger"></label>
 
-        <input style=" font-family: 'Aclonica';" type="submit" value="do it!">
-    </form>
+<div class="site-wrap">
+    <div id="TeamOwnerPage">
+        <h2 id="wellcomecomm"></h2>
+        <img src="kisspng-israel-national-football-team-israeli-premier-leag-5bf48e956c4444.7978273715427539414435.png">
 
-</div>
-
-
-<div id="CreatenewteamPage" style="display: none;text-align: center" onsubmit="submitTeamManager()">
-    <br>
-    <h1 style="font-size: 18px">Create new team</h1>
-    <br>
     </div>
 
+
+    <div id="CreatenewteamPage" style="display: none;text-align: center" onsubmit="submitTeamOwner()">
+        <form class="logeditor" id="registerpage">
+            <br>
+            <h1 style="font-size: 18px">Create new team</h1>
+            <br>
+
+
+            <h1>Select the league you want to add the team to : </h1>
+            <select id="leagueselect" name="locality">
+            </select>
+
+            <br>
+
+            <h1>Enter the year you want to add the group to : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="year" name="year"
+                   placeholder="Write here">
+            <br>
+
+            <h1>Enter the team name you want to add : </h1>
+            <input style=" font-family: 'Aclonica';align-content: center" type="text" id="teamName" name="teamName"
+                   placeholder="Write here">
+            <br>
+            <br>
+        </form>
+        <input style=" font-family: 'Aclonica';" onclick="addNewTeam()" value="Send">
+
+    </div>
+    <div id="notify" style="display: none">
+        <p style="color: #070505">HI</p>
+
+    </div>
 </div>
 </body>
 </html>
