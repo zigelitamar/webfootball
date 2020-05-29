@@ -1,23 +1,13 @@
 var url ="http://localhost:8080/footballapp/referee";
 var refUsername = JSON.parse(localStorage.getItem("profiles")).username;
 
-function submitReferee(){
-    event.preventDefault();
-    if((document.getElementById("addEvent").checked == true)){
-        gameTochoose();
-        switchdivs("addEventPage");
-    }
-    else if((document.getElementById("createReport").checked == true)){
-        switchdivs("createReportPage");
-    }
 
-}
 $(document).ready(function() {
     gameTochoose();
     checknotes(refUsername);
     interval = setInterval(function (){
         checknotes(refUsername);}
-        ,60*1000)
+        ,80*1000)
 
 });
 
@@ -61,14 +51,16 @@ function gameTochoose(){
     dropdown.length = 0;
 
     let defaultOption = document.createElement('option');
+    let defaultOption2 = document.createElement('option');
     defaultOption.text = 'Choose game';
+    defaultOption2.text = 'Choose game';
 
     dropdown.add(defaultOption);
-    dropdown2.add(defaultOption);
+    dropdown2.add(defaultOption2);
     dropdown.selectedIndex = 0;
     dropdown2.selectedIndex = 0;
 
-    let myurl = url +'/games{'+refUsername+'}';
+    let myurl = url +'/games/{'+refUsername+'}';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
@@ -77,12 +69,19 @@ function gameTochoose(){
         if (request.status === 200) {
             const data = JSON.parse(request.responseText);
             let option;
+            let option2;
             for (const argumentsKey in data) {
                 option = document.createElement('option');
+                option2 = document.createElement('option');
+
                 option.text = data[argumentsKey];
                 option.value = argumentsKey;
+
+                option2.text = data[argumentsKey];
+                option2.value = argumentsKey;
+
                 dropdown.add(option);
-                dropdown2.add(option);
+                dropdown2.add(option2);
 
             }
         }
@@ -134,7 +133,7 @@ function sendreport(){
     let xhr = new XMLHttpRequest();
 
     xhr.open("POST",
-        url+"/addReport", true);
+        url+"/addreport", true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if ( xhr.status == "200") {

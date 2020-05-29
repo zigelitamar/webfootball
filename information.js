@@ -60,7 +60,7 @@ function logingGame() {
             if(jsonans.Commissioner == "true"){
                 profiles.commissioner = true;
             }
-            if(jsonans.Teamowner=="true"){
+            if(jsonans.TeamOwner=="true"){
                 profiles.teamowner=true;
             }
             if(jsonans.Referee=="true"){

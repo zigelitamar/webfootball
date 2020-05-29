@@ -331,6 +331,7 @@ function switchdivs(newdiv) {
         runplacing.style.display = 'none';
         definebudget.style.display = 'none';
         notifications.style.display = 'none';
+        setscore.style.display = 'none';
     }
 
     if (newdiv == "setNewScorePolicyPage") {

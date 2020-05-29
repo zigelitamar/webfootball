@@ -43,13 +43,16 @@ function checkFanprofile() {
 
 
 function checkTeamOwnerprofile() {
-    Swal.fire({
-        title: 'Error!',
-        text: 'This Option will be available soon!',
-        icon: 'error',
-        confirmButtonText: 'OK'
-    })
-
+    if (myprofile.teamowner == true) {
+        window.location.href = 'TeamOwner.html';
+    } else {
+        Swal.fire({
+            title: 'Error!',
+            text: 'This Option will be available soon!',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
+    }
 }
 
 
