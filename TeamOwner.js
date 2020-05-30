@@ -18,6 +18,14 @@ function switchdivs(newdiv) {
     var mainFrameTwo = document.getElementById(newdiv);
     var seeTeam = document.getElementById("Seemyteam");
 
+
+    if(newdiv=='contentus'){
+        mainFrameTwo.style.display = 'block';
+        TeamOwnerPage.style.display = 'none';
+        notific.style.display = 'none';
+        seeTeam.style.display = 'none';
+    }
+
     if (newdiv == "CreatenewteamPage") {
         leaguehaschoosen();
         mainFrameTwo.style.display = 'block';

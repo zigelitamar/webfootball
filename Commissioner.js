@@ -344,6 +344,17 @@ function switchdivs(newdiv) {
 
     var mainFrameTwo = document.getElementById(newdiv);
 
+    if(newdiv=='contentus'){
+        mainFrameTwo.style.display = 'block';
+        setscore.style.display = 'none';
+        CommissionerPage.style.display = 'none';
+        definebudget.style.display = 'none';
+        notifications.style.display = 'none';
+        proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
+    }
+
+
     if (newdiv == "runPlacingAlgoPage") {
         getleagues('leagueID2');
         mainFrameTwo.style.display = 'block';

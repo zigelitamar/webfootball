@@ -78,6 +78,14 @@ function logingGame() {
             localStorage.setItem("profiles",JSON.stringify(profiles));
             window.location.href = 'chooseprofile.html';
         }
+        else{
+            Swal.fire({
+                title: 'Error!',
+                text: 'Invalid username or password!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
     }
     xhr.send(json);
 

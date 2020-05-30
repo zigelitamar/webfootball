@@ -30,6 +30,7 @@
         <span>Inbox</span>
         <span id="note" class="badge">Empty</span>
     </a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('contentus')">Content us</a></li>
     <li class="nav-item"><a href="#" onclick="logout()">log out</a></li>
 </ul>
 
@@ -38,10 +39,19 @@
 
 <div class="site-wrap">
     <div id="CommissionerPage" style="text-align: center">
-        <h2 id="wellcomecomm"></h2>
         <img src="kisspng-israel-national-football-team-israeli-premier-leag-5bf48e956c4444.7978273715427539414435.png">
     </div>
 
+
+    <div id="contentus" style="display: none;text-align:center">
+        <FORM METHOD = "POST" ACTION = "MAILTO:footballappteam@gmail.com" method="post">
+            <h2 style="color: blue">CONTACT US</h2>
+            <p type="Name:" style="text-align: left"><input placeholder="Write your name here.."></input></p>
+            <p type="Email:" style="text-align: left" ><input placeholder="Let us know how to contact you back.."></input></p>
+            <p type="Message:" style="text-align: left" ><input placeholder="What would you like to tell us.."></input></p>
+            <input type="submit" value="Send" />
+        </form>
+    </div>
 
     <div id="runPlacingAlgoPage" style="display: none;text-align: center">
         <form id="registerpage2" class="logeditor">
