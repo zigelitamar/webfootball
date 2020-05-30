@@ -161,12 +161,15 @@ function switchdivs(newdiv) {
     var notifypage = document.getElementById("notify");
     var repage = document.getElementById("createReportPage");
     var eventpa = document.getElementById("addEventPage");
+    var contact = document.getElementById("contactus");
+
 
     if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
         RefereePage.style.display='none';
         notifypage.style.display='none'
         repage.style.display='none'
+        eventpa.style.display='none';
     }
 
     if(newdiv== "addEventPage"){
@@ -174,6 +177,7 @@ function switchdivs(newdiv) {
         RefereePage.style.display='none';
         notifypage.style.display='none'
         repage.style.display='none'
+        contact.style.display = 'none';
     }
 
     if(newdiv== "createReportPage"){
@@ -181,6 +185,7 @@ function switchdivs(newdiv) {
         RefereePage.style.display='none';
         notifypage.style.display='none';
         eventpa.style.display='none';
+        contact.style.display = 'none';
     }
     if(newdiv== "notify"){
         removealertsSign();
@@ -188,12 +193,14 @@ function switchdivs(newdiv) {
         RefereePage.style.display='none';
         eventpa.style.display='none';
         repage.style.display='none';
+        contact.style.display = 'none';
     }
     if(newdiv== "RefereePage"){
         mainFrameTwo.style.display = 'block';
         eventpa.style.display='none';
         notifypage.style.display='none';
         repage.style.display='none';
+        contact.style.display = 'none';
     }
 
 

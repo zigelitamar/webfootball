@@ -341,6 +341,7 @@ function switchdivs(newdiv) {
     var notifications = document.getElementById("notify");
     var proveTeam = document.getElementById("proveTeams");
     var seeLeagues = document.getElementById("seechoosenleague");
+    var contact = document.getElementById("contactus");
 
     var mainFrameTwo = document.getElementById(newdiv);
 
@@ -352,6 +353,8 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        setscore.style.display = 'none';
+        runplacing.style.display = 'none';
     }
 
 
@@ -364,6 +367,8 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
+
 
     }
 
@@ -376,6 +381,8 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         setscore.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
+        runplacing.style.display = 'none';
     }
 
     if (newdiv == "seechoosenleague") {
@@ -387,6 +394,8 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         setscore.style.display = 'none';
         proveTeam.style.display = 'none';
+        contact.style.display = 'none';
+        runplacing.style.display = 'none';
     }
 
     if (newdiv == "setNewScorePolicyPage") {
@@ -398,6 +407,8 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
+
 
     }
 
@@ -409,6 +420,7 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
 
     }
 
@@ -420,6 +432,7 @@ function switchdivs(newdiv) {
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
     }
     if (newdiv == "notify") {
         removealertsSign();
@@ -430,6 +443,7 @@ function switchdivs(newdiv) {
         definebudget.style.display = 'none';
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
+        contact.style.display = 'none';
     }
 
 }

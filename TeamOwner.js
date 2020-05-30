@@ -17,6 +17,7 @@ function switchdivs(newdiv) {
     var newteam = document.getElementById("CreatenewteamPage");
     var mainFrameTwo = document.getElementById(newdiv);
     var seeTeam = document.getElementById("Seemyteam");
+    var contact = document.getElementById("contactus");
 
 
     if(newdiv=='contactus'){
@@ -24,6 +25,8 @@ function switchdivs(newdiv) {
         TeamOwnerPage.style.display = 'none';
         notific.style.display = 'none';
         seeTeam.style.display = 'none';
+        newteam.style.display = 'none';
+
     }
 
     if (newdiv == "CreatenewteamPage") {
@@ -32,6 +35,7 @@ function switchdivs(newdiv) {
         TeamOwnerPage.style.display = 'none';
         notific.style.display = 'none';
         seeTeam.style.display = 'none';
+        contact.style.display = 'none';
     }
 
     if (newdiv == "Seemyteam") {
@@ -40,6 +44,7 @@ function switchdivs(newdiv) {
         TeamOwnerPage.style.display = 'none';
         notific.style.display = 'none';
         newteam.style.display = 'none';
+        contact.style.display = 'none';
     }
 
     if (newdiv == "TeamOwnerPage") {
@@ -47,12 +52,14 @@ function switchdivs(newdiv) {
         notific.style.display = 'none';
         newteam.style.display = 'none';
         seeTeam.style.display = 'none';
+        contact.style.display = 'none';
     }
     if (newdiv == "notify") {
         mainFrameTwo.style.display = 'block';
         TeamOwnerPage.style.display = 'none';
         newteam.style.display = 'none';
         seeTeam.style.display = 'none';
+        contact.style.display = 'none';
     }
 
 }
