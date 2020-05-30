@@ -1,8 +1,7 @@
 var url = "http://localhost:8080/footballapp/commissioner";
 var commUserName = JSON.parse(localStorage.getItem("profiles")).username;;
 var interval;
-var check = 1 ;
-var first = true;
+
 $('#wellcomecomm').text("Welcome back " + commUserName + " to your Commissioner page ")
 
 function submitCommissioner() {
@@ -21,7 +20,7 @@ $(document).ready(function() {
     checknotes(commUserName);
     interval = setInterval(function (){
         checknotes(commUserName);},
-        60*1000)
+        6*1000)
 
 });
 
@@ -90,7 +89,6 @@ function addScorePolicy() {
         }
     }
     xhr.send(json);
-
 }
 
 function defineBudget() {
@@ -195,7 +193,7 @@ function declineTeam(node) {
 }
 
 function getTeamReq() {
-    let myurl = url + '/proveTeam{'+commUserName+'}';
+    let myurl = url + '/proveTeam/{'+commUserName+'}';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
@@ -207,8 +205,7 @@ function getTeamReq() {
                 td1.innerHTML = data.username;
                 node.appendChild(td1);
                 let td2 = document.createElement("td");
-                td2.innerHTML = data.teamname+check;
-                check++;
+                td2.innerHTML = data.teamname;
                 node.appendChild(td2);
 
                 let td3 = document.createElement("td");

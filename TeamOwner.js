@@ -1,14 +1,8 @@
-var url ="http://localhost:8700/footballapp/teamowner";
+var url ="http://localhost:8080/footballapp/teamowner";
 var teamOwnerUN = JSON.parse(localStorage.getItem("profiles")).username;
-function submitTeamOwner(){
-    event.preventDefault();
-    if((document.getElementById("Createnewteam").checked == true)){
-        leaguehaschoosen();
-        switchdivs("CreatenewteamPage");
-    }
 
-}
 $(document).ready(function() {
+    leaguehaschoosen();
     checknotes(teamOwnerUN);
     interval = setInterval(function (){checknotes(teamOwnerUN);}
     ,60*1000)
