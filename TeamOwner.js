@@ -19,7 +19,7 @@ function switchdivs(newdiv) {
     var seeTeam = document.getElementById("Seemyteam");
 
 
-    if(newdiv=='contentus'){
+    if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
         TeamOwnerPage.style.display = 'none';
         notific.style.display = 'none';

@@ -344,7 +344,7 @@ function switchdivs(newdiv) {
 
     var mainFrameTwo = document.getElementById(newdiv);
 
-    if(newdiv=='contentus'){
+    if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
         setscore.style.display = 'none';
         CommissionerPage.style.display = 'none';

@@ -162,7 +162,7 @@ function switchdivs(newdiv) {
     var repage = document.getElementById("createReportPage");
     var eventpa = document.getElementById("addEventPage");
 
-    if(newdiv=='contentus'){
+    if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
         RefereePage.style.display='none';
         notifypage.style.display='none'
