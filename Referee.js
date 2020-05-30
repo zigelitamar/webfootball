@@ -26,7 +26,7 @@ function playertochoose(gameid){
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
-    let myurl = url +'/games/{'+gameid+"}";
+    let myurl = url +'/players/{'+gameid+"}";
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
@@ -64,7 +64,7 @@ function gameTochoose(){
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
-
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     request.onload = function() {
         if (request.status === 200) {
             const data = JSON.parse(request.responseText);

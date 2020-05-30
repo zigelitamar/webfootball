@@ -1,35 +1,64 @@
 var url = "http://localhost:8080/footballapp/commissioner";
-var commUserName = JSON.parse(localStorage.getItem("profiles")).username;;
+var commUserName = JSON.parse(localStorage.getItem("profiles")).username;
+
 var interval;
 
 $('#wellcomecomm').text("Welcome back " + commUserName + " to your Commissioner page ")
 
-function submitCommissioner() {
-    event.preventDefault();
-    if ((document.getElementById("setNewScorePolicy").checked == true)) {
-        switchdivs("setNewScorePolicyPage");
-    } else if ((document.getElementById("defineBudgetControl").checked == true)) {
-        switchdivs("defineBudgetControlPage");
-    } else if ((document.getElementById("runPlacingAlgo").checked == true)) {
-        switchdivs("runPlacingAlgoPage");
-    }
 
-}
 
-$(document).ready(function() {
+$(document).ready(function ()
+{
+    getTeamReq();
     checknotes(commUserName);
-    interval = setInterval(function (){
-        checknotes(commUserName);},
-        6*1000)
+    interval = setInterval(function () {
+            checknotes(commUserName);
+        },
+        6001000)
 
 });
+
+
+function leaguechoosen() {
+    seeLeagues($('#leagueID3').val());
+
+};
+
+function seeLeagues(leagueID) {
+    let myurl = url + '/leagues/' + leagueID;
+
+    const request = new XMLHttpRequest();
+    request.open('GET', myurl, true);
+
+    request.onload = function () {
+        if (request.status === 200) {
+            const data = JSON.parse(request.responseText);
+            for (const argumentsKey in data) {
+                let node = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+                td1.innerHTML = argumentsKey;
+                td2.innerHTML = data[argumentsKey][0];
+                td3.innerHTML = data[argumentsKey][1];
+                node.appendChild(td1);
+                node.appendChild(td2);
+                node.appendChild(td3);
+                $("#leagueTable").append(node);
+            }
+        }
+    }
+    request.send();
+
+
+}
 
 function getleagues(eleid) {
     let dropdown = document.getElementById(eleid);
     dropdown.length = 0;
 
     let defaultOption = document.createElement('option');
-    defaultOption.text = 'Choose game';
+    defaultOption.text = 'Choose league';
 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
@@ -138,6 +167,7 @@ function acceptTeam(node) {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.status == "200") {
+            node.remove();
             Swal.fire({
                 title: 'Great!',
                 text: 'You approved the new team!!',
@@ -155,8 +185,6 @@ function acceptTeam(node) {
     }
     xhr.send(json);
 
-
-    node.remove();
 }
 
 function declineTeam(node) {
@@ -173,6 +201,7 @@ function declineTeam(node) {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
         if (xhr.status == "200") {
+            node.remove();
             Swal.fire({
                 title: 'Great!',
                 text: 'You didnt approved the new team!!',
@@ -189,52 +218,56 @@ function declineTeam(node) {
         }
     }
     xhr.send(json);
-    node.remove();
+
 }
 
 function getTeamReq() {
-    let myurl = url + '/proveTeam/{'+commUserName+'}';
+    let myurl = url + '/proveTeam/{' + commUserName + '}';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
-    var node = document.createElement("tr");
+
     request.onload = function () {
         if (request.status === 200) {
             const data = JSON.parse(request.responseText);
+            for (const argumentsKey in data) {
+                let node = document.createElement("tr");
                 let td1 = document.createElement("td");
-                td1.innerHTML = data.username;
+                td1.innerHTML = data[argumentsKey].username;
                 node.appendChild(td1);
                 let td2 = document.createElement("td");
-                td2.innerHTML = data.teamname;
+                td2.innerHTML = data[argumentsKey].teamname;
                 node.appendChild(td2);
 
                 let td3 = document.createElement("td");
                 let buttom = document.createElement("button");
                 buttom.innerHTML = "Accept"
-                buttom.onclick =(function() {
-                    return function() {
+                buttom.onclick = (function () {
+                    return function () {
                         acceptTeam(node);
                     }
                 })();
                 td3.appendChild(buttom);
                 node.appendChild(td3);
 
-               let td4 = document.createElement("td");
-               let buttomDec = document.createElement("button");
-               buttomDec.innerHTML = "Decline"
-               buttomDec.onclick  =(function() {
-                   return function() {
-                       declineTeam(node);
-                   }
-               })();
-               td4.appendChild(buttomDec);
-               node.appendChild(td4);
-               $("#teamTable").append(node);
+                let td4 = document.createElement("td");
+                let buttomDec = document.createElement("button");
+                buttomDec.innerHTML = "Decline"
+                buttomDec.onclick = (function () {
+                    return function () {
+                        declineTeam(node);
+                    }
+                })();
+                td4.appendChild(buttomDec);
+                node.appendChild(td4);
+                $("#teamTable").append(node);
+            }
         }
     }
     request.send();
 
 }
+
 function proveTeamReq() {
     const request = {
         username: commUserName,
@@ -307,6 +340,7 @@ function switchdivs(newdiv) {
     var definebudget = document.getElementById("defineBudgetControlPage");
     var notifications = document.getElementById("notify");
     var proveTeam = document.getElementById("proveTeams");
+    var seeLeagues = document.getElementById("seechoosenleague");
 
     var mainFrameTwo = document.getElementById(newdiv);
 
@@ -318,17 +352,30 @@ function switchdivs(newdiv) {
         definebudget.style.display = 'none';
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
 
     }
 
-    if(newdiv == "proveTeams"){
-        getTeamReq();
+    if (newdiv == "proveTeams") {
+
         mainFrameTwo.style.display = 'block';
         CommissionerPage.style.display = 'none';
         runplacing.style.display = 'none';
         definebudget.style.display = 'none';
         notifications.style.display = 'none';
         setscore.style.display = 'none';
+        seeLeagues.style.display = 'none';
+    }
+
+    if (newdiv == "seechoosenleague") {
+        getleagues('leagueID3');
+        mainFrameTwo.style.display = 'block';
+        CommissionerPage.style.display = 'none';
+        runplacing.style.display = 'none';
+        definebudget.style.display = 'none';
+        notifications.style.display = 'none';
+        setscore.style.display = 'none';
+        proveTeam.style.display = 'none';
     }
 
     if (newdiv == "setNewScorePolicyPage") {
@@ -339,6 +386,7 @@ function switchdivs(newdiv) {
         definebudget.style.display = 'none';
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
 
     }
 
@@ -349,6 +397,7 @@ function switchdivs(newdiv) {
         runplacing.style.display = 'none';
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
 
     }
 
@@ -359,6 +408,7 @@ function switchdivs(newdiv) {
         definebudget.style.display = 'none';
         notifications.style.display = 'none';
         proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
     }
     if (newdiv == "notify") {
         removealertsSign();
@@ -368,6 +418,7 @@ function switchdivs(newdiv) {
         runplacing.style.display = 'none';
         definebudget.style.display = 'none';
         proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
     }
 
 }

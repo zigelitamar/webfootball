@@ -1,39 +1,93 @@
-var url ="http://localhost:8080/footballapp/teamowner";
+var url = "http://localhost:8080/footballapp/teamowner";
 var teamOwnerUN = JSON.parse(localStorage.getItem("profiles")).username;
 
-$(document).ready(function() {
-    leaguehaschoosen();
+$(document).ready(function () {
+    seeTheTeam();
     checknotes(teamOwnerUN);
-    interval = setInterval(function (){checknotes(teamOwnerUN);}
-    ,60*1000)
+    interval = setInterval(function () {
+            checknotes(teamOwnerUN);
+        }
+        , 60 * 1000)
 
 });
 
 function switchdivs(newdiv) {
-    var TeamOwnerPage= document.getElementById("TeamOwnerPage");
-    var notific= document.getElementById("notify");
-    var newteam= document.getElementById("CreatenewteamPage");
+    var TeamOwnerPage = document.getElementById("TeamOwnerPage");
+    var notific = document.getElementById("notify");
+    var newteam = document.getElementById("CreatenewteamPage");
     var mainFrameTwo = document.getElementById(newdiv);
+    var seeTeam = document.getElementById("Seemyteam");
 
-    if(newdiv== "CreatenewteamPage"){
+    if (newdiv == "CreatenewteamPage") {
+        leaguehaschoosen();
         mainFrameTwo.style.display = 'block';
-        TeamOwnerPage.style.display='none';
-        notific.style.display='none';
+        TeamOwnerPage.style.display = 'none';
+        notific.style.display = 'none';
+        seeTeam.style.display = 'none';
+    }
+
+    if (newdiv == "Seemyteam") {
+
+        mainFrameTwo.style.display = 'block';
+        TeamOwnerPage.style.display = 'none';
+        notific.style.display = 'none';
+        newteam.style.display = 'none';
     }
 
     if (newdiv == "TeamOwnerPage") {
         mainFrameTwo.style.display = 'block';
-        notific.style.display='none';
-        newteam.style.display='none';
+        notific.style.display = 'none';
+        newteam.style.display = 'none';
+        seeTeam.style.display = 'none';
     }
     if (newdiv == "notify") {
         mainFrameTwo.style.display = 'block';
-        TeamOwnerPage.style.display='none';
-        newteam.style.display='none';
+        TeamOwnerPage.style.display = 'none';
+        newteam.style.display = 'none';
+        seeTeam.style.display = 'none';
     }
 
 }
-function leaguehaschoosen(){
+
+function seeTheTeam() {
+
+    let myurl = url + '/myteam/{' + teamOwnerUN + '}';
+
+    const request = new XMLHttpRequest();
+    request.open('GET', myurl, true);
+    request.onload = function () {
+        if (request.status === 200) {
+            const data = JSON.parse(request.responseText);
+            let playerdata = data.players;
+            for (const argumentsKey in playerdata) {
+                let tdplayer = document.createElement("tr");
+                tdplayer.innerHTML = playerdata[argumentsKey];
+                $("#playerTable").append(tdplayer);
+            }
+            let coachdata = data.coaches;
+            for (const argumentsKey in coachdata) {
+                let tdcoach = document.createElement("tr");
+                tdcoach.innerHTML = coachdata[argumentsKey];
+                $("#assetTable").append(tdcoach);
+            }
+            let managersdata = data.managers;
+            for (const argumentsKey in managersdata) {
+                let tdmanager = document.createElement("tr");
+                tdmanager.innerHTML = managersdata[argumentsKey];
+                $("#assetTable").append(tdmanager);
+            }
+            let stadium = data.field;
+            let tdfield = document.createElement("tr");
+            tdfield.innerHTML = stadium;
+            $("#assetTable").append(tdfield);
+        }
+    }
+    request.send();
+
+
+}
+
+function leaguehaschoosen() {
     let dropdown = document.getElementById('leagueselect');
     dropdown.length = 0;
 
@@ -43,12 +97,12 @@ function leaguehaschoosen(){
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
-    let myurl = url +'/leagues';
+    let myurl = url + 'http://localhost:8700/footballapp/teamowner/leagues';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
 
-    request.onload = function() {
+    request.onload = function () {
         if (request.status === 200) {
             const data = JSON.parse(request.responseText);
             let option;
@@ -63,9 +117,10 @@ function leaguehaschoosen(){
     }
     request.send();
 }
-function addNewTeam(){
+
+function addNewTeam() {
     const request = {
-        username:teamOwnerUN,
+        username: teamOwnerUN,
         leagueID: $('#leagueselect').val(),
         year: $('#year').val(),
         team_name: $('#teamName').val(),
@@ -74,18 +129,17 @@ function addNewTeam(){
     let xhr = new XMLHttpRequest();
 
     xhr.open("POST",
-        url+"/signteam", true);
+        url + "/signteam", true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.onload = function () {
-        if ( xhr.status == "200") {
+        if (xhr.status == "200") {
             Swal.fire({
                 title: 'Great!',
                 text: 'Team Request Sent To commissioner',
                 icon: 'success',
                 confirmButtonText: 'OK'
             })
-        }
-        else{
+        } else {
             Swal.fire({
                 title: 'Error!',
                 text: 'some thing went wrong',

@@ -29,7 +29,8 @@
 <body>
 <ul class="navigation">
     <li class="nav-item"><a href="#" onclick="switchdivs('TeamOwnerPage')">Home</a></li>
-    <li class="nav-item"><a href="#" onclick="switchdivs('CreatenewteamPage')">Add my team</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('CreatenewteamPage')">Add new team</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('Seemyteam')">My team</a></li>
     <li class="nav-item"><a href="#" class="notification" onclick="switchdivs('notify')">
         <span>Inbox</span>
         <span id="note" class="badge">Empty</span>
@@ -40,7 +41,7 @@
 <label for="nav-trigger"></label>
 
 <div class="site-wrap">
-    <div id="TeamOwnerPage">
+    <div id="TeamOwnerPage" style="text-align: center;">
         <h2 id="wellcomecomm"></h2>
         <img src="kisspng-israel-national-football-team-israeli-premier-leag-5bf48e956c4444.7978273715427539414435.png">
 
@@ -74,9 +75,35 @@
         <input style=" font-family: 'Aclonica';" onclick="addNewTeam()" value="Send">
 
     </div>
-    <div id="notify" style="display: none">
-        <p style="color: #070505">HI</p>
 
+
+    <div id="Seemyteam" style="display: none;text-align: center" onsubmit="seeTheTeam()">
+        <table>
+            <caption>My Players</caption>
+            <thead>
+            <tr>
+                <th scope="col">Player name</th>
+            </tr>
+            </thead>
+            <tbody id="playerTable">
+            </tbody>
+        </table>
+
+        <table>
+            <caption>My assets</caption>
+            <thead>
+            <tr>
+                <th scope="col">asset name</th>
+            </tr>
+            </thead>
+            <tbody id="assetTable">
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div id="notify" style="display: none">
     </div>
 </div>
 </body>
