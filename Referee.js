@@ -124,6 +124,41 @@ function addEvent(){
 
 
 }
+
+
+function byEmail() {
+    const request = {
+        username: refUsername,
+        mail: $('#email').val(),
+    };
+    let json = JSON.stringify(request);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST",
+        url+"/setViaMail", true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.onload = function () {
+        if ( xhr.status == "200") {
+            Swal.fire({
+                title: 'Great!',
+                text: 'You will now receive notifications for the requested email: '+$('#email').val(),
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Error!',
+                text: 'some thing went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+    xhr.send(json);
+
+
+}
 function sendreport(){
     const request = {
         username: refUsername,
@@ -162,6 +197,7 @@ function switchdivs(newdiv) {
     var repage = document.getElementById("createReportPage");
     var eventpa = document.getElementById("addEventPage");
     var contact = document.getElementById("contactus");
+    var email = document.getElementById("byEmail")
 
 
     if(newdiv=='contactus'){
@@ -170,6 +206,17 @@ function switchdivs(newdiv) {
         notifypage.style.display='none'
         repage.style.display='none'
         eventpa.style.display='none';
+        email.style.display='none';
+
+    }
+    if(newdiv=='byEmail'){
+        mainFrameTwo.style.display = 'block';
+        RefereePage.style.display='none';
+        notifypage.style.display='none'
+        repage.style.display='none'
+        eventpa.style.display='none';
+        contact.style.display = 'none';
+
     }
 
     if(newdiv== "addEventPage"){
@@ -178,6 +225,8 @@ function switchdivs(newdiv) {
         notifypage.style.display='none'
         repage.style.display='none'
         contact.style.display = 'none';
+        email.style.display='none';
+
     }
 
     if(newdiv== "createReportPage"){
@@ -186,6 +235,8 @@ function switchdivs(newdiv) {
         notifypage.style.display='none';
         eventpa.style.display='none';
         contact.style.display = 'none';
+        email.style.display='none';
+
     }
     if(newdiv== "notify"){
         removealertsSign();
@@ -194,6 +245,8 @@ function switchdivs(newdiv) {
         eventpa.style.display='none';
         repage.style.display='none';
         contact.style.display = 'none';
+        email.style.display='none';
+
     }
     if(newdiv== "RefereePage"){
         mainFrameTwo.style.display = 'block';
@@ -201,6 +254,8 @@ function switchdivs(newdiv) {
         notifypage.style.display='none';
         repage.style.display='none';
         contact.style.display = 'none';
+        email.style.display='none';
+
     }
 
 
