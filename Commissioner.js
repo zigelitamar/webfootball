@@ -14,7 +14,7 @@ $(document).ready(function ()
     interval = setInterval(function () {
             checknotes(commUserName);
         },
-        6001000)
+        60*1000)
 
 });
 
@@ -222,7 +222,7 @@ function declineTeam(node) {
 }
 
 function getTeamReq() {
-    let myurl = url + '/proveTeam/{' + commUserName + '}';
+    let myurl = url + '/proveTeam/' + commUserName ;
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);

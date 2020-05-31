@@ -48,7 +48,7 @@ function checkTeamOwnerprofile() {
     } else {
         Swal.fire({
             title: 'Error!',
-            text: 'This Option will be available soon!',
+            text: 'You are Not a Team Owner!',
             icon: 'error',
             confirmButtonText: 'OK'
         })

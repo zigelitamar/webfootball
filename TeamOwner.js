@@ -66,7 +66,7 @@ function switchdivs(newdiv) {
 
 function seeTheTeam() {
 
-    let myurl = url + '/myteam/{' + teamOwnerUN + '}';
+    let myurl = url + '/myteam/' + teamOwnerUN ;
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);

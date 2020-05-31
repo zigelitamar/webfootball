@@ -26,7 +26,7 @@ function playertochoose(gameid){
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
-    let myurl = url +'/players/{'+gameid+"}";
+    let myurl = url +'/players/'+gameid;
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
@@ -60,7 +60,7 @@ function gameTochoose(){
     dropdown.selectedIndex = 0;
     dropdown2.selectedIndex = 0;
 
-    let myurl = url +'/games/{'+refUsername+'}';
+    let myurl = url +'/games/'+refUsername;
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
