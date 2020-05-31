@@ -4,6 +4,7 @@ myprofile.username = attributes.username;
 myprofile.commissioner = attributes.commissioner;
 myprofile.referee = attributes.referee;
 myprofile.teamowner = attributes.teamowner;
+myprofile.fan = attributes.fan;
 
 
 function checkCommissionerprofile() {
@@ -33,9 +34,12 @@ function checkRefereeprofile() {
 }
 
 function checkFanprofile() {
+    if (myprofile.fan == true) {
+        window.location.href = 'Fan.html';
+    }
     Swal.fire({
         title: 'Error!',
-        text: 'This Option will be available soon!',
+        text: 'You dont have a fan page!',
         icon: 'error',
         confirmButtonText: 'OK'
     })

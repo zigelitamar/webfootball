@@ -66,9 +66,9 @@ function logingGame() {
             if(jsonans.Referee=="true"){
                 profiles.referee=true;
             }
-            //  if(jsonans.TeamOwner=="true"){
-            //  profiles.teamowner=true;
-            //  }
+             if(jsonans.Fan=="true"){
+             profiles.fan=true;
+             }
             //  if(jsonans.Commissioner=="true"){
             //   profiles.commissioner=true;
             //   }
