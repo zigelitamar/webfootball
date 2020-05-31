@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/footballapp/teamowner";
+var url = "http://132.72.65.125:8080/footballapp/teamowner";
 var teamOwnerUN = JSON.parse(localStorage.getItem("profiles")).username;
 
 $(document).ready(function () {
@@ -92,9 +92,12 @@ function seeTheTeam() {
                 $("#assetTable").append(tdmanager);
             }
             let stadium = data.field;
-            let tdfield = document.createElement("tr");
-            tdfield.innerHTML = stadium;
-            $("#assetTable").append(tdfield);
+            if(data.field!=undefined) {
+                let tdfield = document.createElement("tr");
+                tdfield.innerHTML = stadium;
+                $("#assetTable").append(tdfield);
+            }
+
         }
     }
     request.send();
@@ -112,7 +115,7 @@ function leaguehaschoosen() {
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
-    let myurl = url + 'http://localhost:8700/footballapp/teamowner/leagues';
+    let myurl = url + '/leagues';
 
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);

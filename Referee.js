@@ -1,4 +1,4 @@
-var url ="http://localhost:8080/footballapp/referee";
+var url ="http://132.72.65.125:8080/footballapp/referee";
 var refUsername = JSON.parse(localStorage.getItem("profiles")).username;
 
 

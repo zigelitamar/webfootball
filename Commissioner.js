@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/footballapp/commissioner";
+var url = "http://132.72.65.125:8080/footballapp/commissioner";
 var commUserName = JSON.parse(localStorage.getItem("profiles")).username;
 
 var interval;

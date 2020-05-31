@@ -2,7 +2,7 @@ var notification = 0;
 
 function checknotes(name) {
 
-    let myurl = 'http://localhost:8080/footballapp/alerts/myalerts/' + name ;
+    let myurl = 'http://132.72.65.125:8080/footballapp/alerts/myalerts/' + name ;
     const request = new XMLHttpRequest();
     request.open('GET', myurl, true);
     request.onload = function () {

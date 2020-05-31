@@ -1,6 +1,6 @@
 
 
-var urlip = "http://localhost:8080/";
+var urlip = "http://132.72.65.125:8080/";
 function submitRegistration() {
     $('#first_form').validate({
         rules: {
