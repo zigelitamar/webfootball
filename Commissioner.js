@@ -20,6 +20,9 @@ $(document).ready(function ()
 
 
 function leaguechoosen() {
+    $('#leagueTable').children().each(function () {
+        this.remove();
+    });
     seeLeagues($('#leagueID3').val());
 
 };

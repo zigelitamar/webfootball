@@ -7,7 +7,7 @@ $(document).ready(function() {
     checknotes(refUsername);
     interval = setInterval(function (){
         checknotes(refUsername);}
-        ,80*1000)
+        ,60*1000)
 
 });
 
@@ -94,7 +94,7 @@ function addEvent(){
         eventtype: $('#selectType').val(),
         minute: $('#minute').val(),
         gameID: $('#gameselect').val(),
-        playerID: $('#playerselect').val()
+        playerusername: $('#playerselect').val()
     };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
