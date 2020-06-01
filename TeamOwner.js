@@ -11,6 +11,41 @@ $(document).ready(function () {
 
 });
 
+
+function byEmail() {
+    const request = {
+        username: teamOwnerUN,
+        mail: $('#email').val(),
+    };
+    let json = JSON.stringify(request);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST",
+        url+"/setViaMail", true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.onload = function () {
+        if ( xhr.status == "200") {
+            Swal.fire({
+                title: 'Great!',
+                text: 'You will now receive notifications for the requested email: '+$('#email').val(),
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Error!',
+                text: 'some thing went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+    xhr.send(json);
+
+
+}
+
 function switchdivs(newdiv) {
     var TeamOwnerPage = document.getElementById("TeamOwnerPage");
     var notific = document.getElementById("notify");
@@ -18,7 +53,16 @@ function switchdivs(newdiv) {
     var mainFrameTwo = document.getElementById(newdiv);
     var seeTeam = document.getElementById("Seemyteam");
     var contact = document.getElementById("contactus");
+    var email = document.getElementById("byEmail")
 
+    if(newdiv=='byEmail'){
+        mainFrameTwo.style.display = 'block';
+        TeamOwnerPage.style.display = 'none';
+        notific.style.display = 'none';
+        seeTeam.style.display = 'none';
+        newteam.style.display = 'none';
+        contact.style.display = 'none';
+    }
 
     if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
@@ -26,6 +70,7 @@ function switchdivs(newdiv) {
         notific.style.display = 'none';
         seeTeam.style.display = 'none';
         newteam.style.display = 'none';
+        email.style.display = 'none';
 
     }
 
@@ -36,6 +81,8 @@ function switchdivs(newdiv) {
         notific.style.display = 'none';
         seeTeam.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
+
     }
 
     if (newdiv == "Seemyteam") {
@@ -45,6 +92,8 @@ function switchdivs(newdiv) {
         notific.style.display = 'none';
         newteam.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
+
     }
 
     if (newdiv == "TeamOwnerPage") {
@@ -53,6 +102,8 @@ function switchdivs(newdiv) {
         newteam.style.display = 'none';
         seeTeam.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
+
     }
     if (newdiv == "notify") {
         mainFrameTwo.style.display = 'block';
@@ -60,6 +111,8 @@ function switchdivs(newdiv) {
         newteam.style.display = 'none';
         seeTeam.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
+
     }
 
 }

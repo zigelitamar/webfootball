@@ -56,6 +56,42 @@ function seeLeagues(leagueID) {
 
 }
 
+
+function byEmail() {
+    const request = {
+        username: commUserName,
+        mail: $('#email').val(),
+    };
+    let json = JSON.stringify(request);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST",
+        url+"/setViaMail", true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.onload = function () {
+        if ( xhr.status == "200") {
+            Swal.fire({
+                title: 'Great!',
+                text: 'You will now receive notifications for the requested email: '+$('#email').val(),
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Error!',
+                text: 'some thing went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+    xhr.send(json);
+
+
+}
+
+
 function getleagues(eleid) {
     let dropdown = document.getElementById(eleid);
     dropdown.length = 0;
@@ -345,9 +381,25 @@ function switchdivs(newdiv) {
     var proveTeam = document.getElementById("proveTeams");
     var seeLeagues = document.getElementById("seechoosenleague");
     var contact = document.getElementById("contactus");
+    var email = document.getElementById("byEmail")
+
 
     var mainFrameTwo = document.getElementById(newdiv);
 
+
+    if(newdiv=='byEmail'){
+        mainFrameTwo.style.display = 'block';
+        setscore.style.display = 'none';
+        CommissionerPage.style.display = 'none';
+        definebudget.style.display = 'none';
+        notifications.style.display = 'none';
+        proveTeam.style.display = 'none';
+        seeLeagues.style.display = 'none';
+        setscore.style.display = 'none';
+        runplacing.style.display = 'none';
+        contact.style.display = 'none';
+
+    }
     if(newdiv=='contactus'){
         mainFrameTwo.style.display = 'block';
         setscore.style.display = 'none';
@@ -358,6 +410,7 @@ function switchdivs(newdiv) {
         seeLeagues.style.display = 'none';
         setscore.style.display = 'none';
         runplacing.style.display = 'none';
+        email.style.display = 'none';
     }
 
 
@@ -371,6 +424,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
 
 
     }
@@ -386,6 +440,7 @@ function switchdivs(newdiv) {
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
         runplacing.style.display = 'none';
+        email.style.display = 'none';
     }
 
     if (newdiv == "seechoosenleague") {
@@ -399,6 +454,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         contact.style.display = 'none';
         runplacing.style.display = 'none';
+        email.style.display = 'none';
     }
 
     if (newdiv == "setNewScorePolicyPage") {
@@ -411,6 +467,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
 
 
     }
@@ -424,6 +481,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
 
     }
 
@@ -436,6 +494,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
     }
     if (newdiv == "notify") {
         removealertsSign();
@@ -447,6 +506,7 @@ function switchdivs(newdiv) {
         proveTeam.style.display = 'none';
         seeLeagues.style.display = 'none';
         contact.style.display = 'none';
+        email.style.display = 'none';
     }
 
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Referee</title>
+    <title>Fan</title>
     <script src="jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
@@ -11,6 +11,8 @@
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="jquery-3.4.1.slim.min.js"></script>
@@ -31,6 +33,7 @@
         <span id="note" class="badge">Empty</span>
     </a></li>
     <li class="nav-item"><a href="#" onclick="switchdivs('contactus')">Contact us</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('byEmail')">Get updates by email</a></li>
     <li class="nav-item"><a href="#" onclick="logout()">log out</a></li>
 
 </ul>
@@ -50,6 +53,19 @@
             <p type="Email:" style="text-align: left" ><input placeholder="Let us know how to contact you back.."></input></p>
             <p type="Message:" style="text-align: left" ><input placeholder="What would you like to tell us.."></input></p>
             <input type="submit" value="Send" />
+        </form>
+    </div>
+
+    <div id="byEmail" style="display: none;text-align:center" onsubmit="byEmail()">
+        <br>
+        <br>
+        <form action="/action_page.php">
+            <label for="emails" style=" font-family: 'Aclonica';align-content: center"><h1 style="border-bottom: 3px solid #78788c;">If you would like to receive the updates by email, please add your email address here!</h1></label>
+            <br>
+            <br>
+            <input type="email" id="emails" multiple style=" font-family: 'Aclonica';align-content: center">
+            <br><br>
+            <input style=" font-family: 'Aclonica'" type="submit" value="Yes I want!!">
         </form>
     </div>
 

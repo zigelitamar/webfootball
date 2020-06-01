@@ -33,6 +33,7 @@
         <span id="note" class="badge">Empty</span>
     </a></li>
     <li class="nav-item"><a href="#" onclick="switchdivs('contactus')">Contact us</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('byEmail')">Get updates by email</a></li>
     <li class="nav-item"><a href="#" onclick="logout()">log out</a></li>
 
 </ul>
@@ -53,6 +54,19 @@
         <p type="Message:" style="text-align: left" ><input placeholder="What would you like to tell us.."></input></p>
         <input type="submit" value="Send" />
     </form>
+    </div>
+
+    <div id="byEmail" style="display: none;text-align:center" onsubmit="byEmail()">
+        <br>
+        <br>
+        <form action="/action_page.php">
+            <label for="emails" style=" font-family: 'Aclonica';align-content: center"><h1 style="border-bottom: 3px solid #78788c;">If you would like to receive the updates by email, please add your email address here!</h1></label>
+            <br>
+            <br>
+            <input type="email" id="emails" multiple style=" font-family: 'Aclonica';align-content: center">
+            <br><br>
+            <input style=" font-family: 'Aclonica'" type="submit" value="Yes I want!!">
+        </form>
     </div>
 
 
