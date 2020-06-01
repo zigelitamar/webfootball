@@ -129,7 +129,7 @@ function addEvent(){
 function byEmail() {
     const request = {
         username: refUsername,
-        mail: $('#email').val(),
+        mail: $('#emails').val(),
     };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
@@ -141,7 +141,7 @@ function byEmail() {
         if ( xhr.status == "200") {
             Swal.fire({
                 title: 'Great!',
-                text: 'You will now receive notifications for the requested email: '+$('#email').val(),
+                text: 'You will now receive notifications for the requested email: '+$('#emails').val(),
                 icon: 'success',
                 confirmButtonText: 'OK'
             })
@@ -182,7 +182,7 @@ function sendreport(){
         else{
             Swal.fire({
                 title: 'Error!',
-                text: 'some thing went wrong',
+                text: 'You are just the second referee',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });

@@ -21,7 +21,7 @@
 <body>
 <ul class="navigation">
     <li class="nav-item"><a href="#" onclick="switchdivs('CommissionerPage')">Home</a></li>
-    <li class="nav-item"><a href="#" onclick="switchdivs('runPlacingAlgoPage')">Allocate games</a></li>
+    <li class="nav-item"><a href="#" onclick="switchdivs('runPlacingAlgoPage')">Team policies</a></li>
     <li class="nav-item"><a href="#" onclick="switchdivs('setNewScorePolicyPage')">Scoring policies</a></li>
     <li class="nav-item"><a href="#" onclick="switchdivs('defineBudgetControlPage')">Budget control</a></li>
     <li class="nav-item"><a href="#" onclick="switchdivs('seechoosenleague')">Leagues</a></li>
@@ -47,13 +47,13 @@
     <div id="byEmail" style="display: none;text-align:center" onsubmit="byEmail()">
         <br>
         <br>
-        <form action="/action_page.php">
+        <form >
             <label for="emails" style=" font-family: 'Aclonica';align-content: center"><h1 style="border-bottom: 3px solid #78788c;">If you would like to receive the updates by email, please add your email address here!</h1></label>
             <br>
             <br>
             <input type="email" id="emails" multiple style=" font-family: 'Aclonica';align-content: center">
             <br><br>
-            <input style=" font-family: 'Aclonica'" type="submit" value="Yes I want!!">
+            <input style=" font-family: 'Aclonica'" onclick="byEmail()"  value="Yes I want!!">
         </form>
     </div>
 
