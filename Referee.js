@@ -174,7 +174,7 @@ function sendreport(){
         if ( xhr.status == "200") {
             Swal.fire({
                 title: 'Great!',
-                text: 'Event added',
+                text: 'Report added',
                 icon: 'success',
                 confirmButtonText: 'OK'
             })

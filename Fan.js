@@ -1,5 +1,5 @@
 var fanName = JSON.parse(localStorage.getItem("profiles")).username;
-var url ="http://132.72.65.125:8080/footballapp/fan";
+var url ="http://132.72.65.125:8080/footballapp/commissioner";
 
 $(document).ready(function() {
     checknotes(fanName);
@@ -12,7 +12,7 @@ $(document).ready(function() {
 function byEmail() {
     const request = {
         username: fanName,
-        mail: $('#email').val(),
+        mail: $('#emails').val(),
     };
     let json = JSON.stringify(request);
     let xhr = new XMLHttpRequest();
@@ -24,7 +24,7 @@ function byEmail() {
         if ( xhr.status == "200") {
             Swal.fire({
                 title: 'Great!',
-                text: 'You will now receive notifications for the requested email: '+$('#email').val(),
+                text: 'You will now receive notifications for the requested email: '+$('#emails').val(),
                 icon: 'success',
                 confirmButtonText: 'OK'
             })

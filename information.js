@@ -69,12 +69,7 @@ function logingGame() {
              if(jsonans.Fan=="true"){
              profiles.fan=true;
              }
-            //  if(jsonans.Commissioner=="true"){
-            //   profiles.commissioner=true;
-            //   }
-            //  if(jsonans.Referee=="true"){
-            //   profiles.referee=true;
-            //   }
+
             localStorage.setItem("profiles",JSON.stringify(profiles));
             window.location.href = 'chooseprofile.html';
         }
